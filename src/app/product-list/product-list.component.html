@@ -1,0 +1,14 @@
+<div class="card mb-3" *ngFor="let product of products">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-3">
+        <img src="{{ product.productImg }}" alt="{{ product.title }}" />
+      </div>
+      <div class="col-9">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="products.length === 0">there is no product</div>

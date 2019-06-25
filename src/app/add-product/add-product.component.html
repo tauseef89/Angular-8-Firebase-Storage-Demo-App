@@ -1,0 +1,70 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="alert alert-success" role="alert" *ngIf="successMsg">
+      <strong>Product added successfully</strong>
+    </div>
+    <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label>Product Title</label>
+            <input
+              type="text"
+              formControlName="title"
+              class="form-control"
+              placeholder="Enter product title"
+            />
+            <div
+              class="text-danger"
+              *ngIf="isSubmitted && formControls.title.errors?.required"
+            >
+              This field is required.
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label>Product Image</label>
+            <div class="custom-file">
+              <input
+                formControlName="productImg"
+                type="file"
+                class="custom-file-input"
+                id="customFile"
+                (change)="uploadFile($event)"
+              />
+              <label class="custom-file-label" for="customFile"
+                >Choose file</label
+              >
+            </div>
+            <div
+              class="text-danger"
+              *ngIf="isSubmitted && formControls.productImg.errors?.required"
+            >
+              This field is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label>Product Info</label>
+            <textarea
+              formControlName="description"
+              class="form-control"
+              placeholder="Enter product info"
+            ></textarea>
+            <div
+              class="text-danger"
+              *ngIf="isSubmitted && formControls.description.errors?.required"
+            >
+              This field is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-block btn-success">Add Product</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

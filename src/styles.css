@@ -1,0 +1,13 @@
+body {
+  background: #039be5;
+}
+
+.container {
+  max-width: 800px;
+}
+
+.card {
+  background: #0288d1;
+  border-color: #0288d1;
+  color: #fff;
+}
